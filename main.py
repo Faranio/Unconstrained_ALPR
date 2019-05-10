@@ -115,6 +115,7 @@ if __name__ == "__main__":
         n += 1
 
         ret, frame = cap.read()
+		frame = frame[400:]
 
         if ret == False:
             break
@@ -322,7 +323,6 @@ if __name__ == "__main__":
                 shutil.rmtree('tmp/output/')
 
                 cv2.imshow('Video', frame)
-                #Main.main(frame2)
 
                 if cv2.waitKey(1)&0xff==ord('q'):
                     break
