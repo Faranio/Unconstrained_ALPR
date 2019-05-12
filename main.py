@@ -1,3 +1,10 @@
+#Parameters to tune:
+#	1) Frame steps
+#	2) Frame dimensions
+#   3) Turn on or off the KZ standards (depending on the goal)
+
+
+
 import sys, os
 import cv2
 import keras
@@ -115,7 +122,7 @@ if __name__ == "__main__":
         n += 1
 
         ret, frame = cap.read()
-		frame = frame[400:]
+        frame = frame[400:] #Parameter to tune
 
         if ret == False:
             break
@@ -124,7 +131,7 @@ if __name__ == "__main__":
 
             print("Frame number #" + str(n))
 
-            if n % 5 == 0:
+            if n % 5 == 0: #Parameter to tune
         
                 cv2.imwrite('frame.jpg', frame)
 
@@ -254,7 +261,7 @@ if __name__ == "__main__":
                         with open('%s/%s_str.txt' % (output_dir,n),'w') as f:
                            f.write(lp_str + '\n')
 
-                        result = russia(lp_str)
+                        """result = russia(lp_str)
 
                         if (result == ""):
                             result = kazakhstan(lp_str)
@@ -262,6 +269,12 @@ if __name__ == "__main__":
                         if (result != ""):
                             print '-----------------------------------------------------------------'
                             print '\t\tLP: %s' % result
+                            print '-----------------------------------------------------------------'"""
+                        
+                        if len(lp_str) > 5: #Parameter to tune
+
+                            print '-----------------------------------------------------------------'
+                            print '\t\tLP: %s' % lp_str
                             print '-----------------------------------------------------------------'
 
                     else:
